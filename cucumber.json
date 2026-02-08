@@ -1,0 +1,12 @@
+{
+  "default": {
+    "require": ["features/**/*.ts"],
+    "paths": ["features/**/*.feature"],
+    "format": [
+      "json:reports/cucumber_report.json",
+      "html:reports/cucumber_report.html",
+      "progress"
+    ],
+    "compiler": ["ts:ts-node/register"]
+  }
+}

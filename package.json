@@ -1,0 +1,24 @@
+{
+  "name": "my-qa",
+  "engines": {
+    "node": ">=24.0.0 <25",
+    "npm": ">=10.4.0"
+  },
+  "scripts": {
+    "test:integration": "cucumber-js --require-module ts-node/register  --world-parameters '{ \"tasks\": \"features/support/tasks/integration\" }' --tags 'not @ui-only and not @skip'",
+    "test:integration:dev": "cucumber-js --require-module ts-node/register  --world-parameters '{ \"tasks\": \"features/support/tasks/integration\" }' --tags 'not @ui-only and @in-dev'",
+    "test:e2e": "cucumber-js --require-module ts-node/register  --world-parameters '{ \"tasks\": \"features/support/tasks/e2e\" }' --tags 'not @skip and not @ui-skip'",
+    "test:e2e:headless": "cucumber-js --require-module ts-node/register  --world-parameters '{ \"tasks\": \"features/support/tasks/e2e\", \"headless\": true }' --tags 'not @skip and not @ui-skip'",
+    "test:e2e:dev": "cucumber-js --require-module ts-node/register  --world-parameters '{ \"tasks\": \"features/support/tasks/e2e\", \"headless\": true }' --tags '@in-dev'",
+    "test:e2e:debug": "PWDEBUG=1 cucumber-js --require-module ts-node/register  --world-parameters '{ \"tasks\": \"features/support/tasks/e2e\" }' --tags '@in-dev'"
+  },
+  "devDependencies": {
+    "@cucumber/screenplay": "^5.3.0",
+    "@playwright/test": "^1.53.1",
+    "@types/node": "^24.0.3",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.1"
+  }
+}
